@@ -1,0 +1,36 @@
+.navcol-container {
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 12%;
+  height: min-content;
+}
+
+.navcol-link {
+  color: white;
+  font-size: 1.2rem;
+  width: 100%;
+  text-align: left;
+  padding-inline: 1.2rem;
+  padding-block: 0.5rem;
+  border-bottom: 2px solid white;
+  text-decoration: none;
+  background: #232323;
+  display: flex;
+  align-items: center;
+}
+.navcol-link:hover {
+  color: white;
+}
+
+p.navcol-text {
+  padding-left: 2.4rem;
+}
+
+span:hover {
+  cursor: pointer;
+}

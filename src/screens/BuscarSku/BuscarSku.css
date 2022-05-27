@@ -1,0 +1,23 @@
+.mostrar-sku-container {
+  margin-block: 1rem;
+  width: 600px;
+  background-color: white;
+  padding: 1rem;
+}
+.buscarsku-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.buscar-box {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.input-buscar-sku {
+  width: 85%;
+  height: 2rem;
+  font-size: 1rem;
+  padding-inline: 1rem;
+}

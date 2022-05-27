@@ -1,0 +1,30 @@
+.novedad-container {
+  padding: 1rem;
+  border: 1px solid darkgray;
+  margin-bottom: 1rem;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0.5rem 0.5rem 2px 1px rgba(0, 0, 0, 0.2);
+}
+.novedad-header {
+  display: flex;
+  justify-content: space-between;
+}
+.borrar-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.novedad-texto {
+  margin-bottom: 1rem;
+}
+.novedad-img-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem;
+}

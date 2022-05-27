@@ -1,0 +1,19 @@
+.navcol-link {
+  color: white;
+  font-size: 1.2rem;
+  width: 100%;
+  text-align: left;
+  padding-inline: 2rem;
+  padding-block: 0.5rem;
+  border-bottom: 2px solid white;
+  background-color: #002d67;
+  text-decoration: none;
+  font-size: 1rem;
+  background: #232323;
+}
+.navcol-link:hover {
+  color: white;
+}
+p.navcol-text {
+  padding-left: 2rem;
+}

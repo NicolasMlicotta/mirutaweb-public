@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto";
+  margin: 0;
+  padding: 0;
+}
+.app {
+  background-color: #ebebeb;
+  min-height: 100vh;
+}
+.app-main {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.app-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}

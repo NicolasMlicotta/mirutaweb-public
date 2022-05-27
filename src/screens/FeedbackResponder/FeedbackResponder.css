@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  width: 800px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  box-shadow: 0.5rem 0.5rem 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+p.head-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.desc-container {
+  display: flex;
+  justify-content: left;
+  margin-top: 0.5em;
+  width: 100%;
+}
+
+p.desc-text {
+  font-size: 1.2rem;
+  text-align: left;
+}
+p.creador-text {
+  font-size: 1rem;
+  text-align: left;
+  align-self: flex-end;
+}
+
+.autor-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+  width: 100%;
+}
+
+button.btn-responder {
+  font-size: 1rem;
+  background-color: dodgerblue;
+  color: white;
+  padding-inline: 1rem;
+  padding-block: 0.2rem;
+}
+button.btn-responder:hover {
+  cursor: pointer;
+  color: black;
+}

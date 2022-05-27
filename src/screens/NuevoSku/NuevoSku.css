@@ -1,0 +1,26 @@
+.nuevosku-form{
+    display: flex;
+    flex-direction: column;
+
+}
+.formik-input{
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.formik-input-descripcion{
+    width: 100%;
+    height: 8rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    }
+
+    .formik-img-subir{
+        width: 100%;
+            margin-bottom: 1rem;
+    }
+    .cargar-sku{
+        height: 2rem;
+        cursor: pointer;
+    }

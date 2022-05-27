@@ -1,0 +1,16 @@
+.sku-item {
+  margin-bottom: 0.5rem;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.sku-mostrar-img {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.mostrar-sku-container {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0.5rem 0.5rem 2px 1px rgba(0, 0, 0, 0.2);
+}

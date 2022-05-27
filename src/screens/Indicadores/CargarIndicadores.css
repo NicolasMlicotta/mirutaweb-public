@@ -1,0 +1,25 @@
+.cargar-feedbacks-container {
+  align-items: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 800px;
+  margin-inline: auto;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  box-shadow: 0.5rem 0.5rem 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  padding-bottom: 1rem;
+  background-color: white;
+}
+
+p.mensaje {
+  font-size: 1.4rem;
+}
+.cargar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}

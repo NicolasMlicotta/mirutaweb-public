@@ -1,0 +1,30 @@
+.login-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.input-text {
+  margin-bottom: 1rem;
+  height: 2rem;
+  width: 20rem;
+}
+
+.select-ol {
+  margin-bottom: 1rem;
+  height: 2rem;
+}
+.select-rol {
+  margin-bottom: 1rem;
+  height: 2rem;
+}
