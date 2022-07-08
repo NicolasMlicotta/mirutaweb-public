@@ -74,9 +74,18 @@ const uploadData = (setLoading) => {
     //función para subir individualmente cada documento (fila del sheet)
     const uploadDocument = async (dataArray) => {
       let dni = dataArray[0];
+      let m = "";
+      let d = "";
+      if (dataArray[3].length == 1) {
+        m = "0" + dataArray[3];
+      }
+      if (dataArray[4].length == 1) {
+        d = "0" + dataArray[4];
+      }
       let idRegistro = dataArray[2] + dataArray[3] + dataArray[4];
       try {
         await setDoc(doc(db, "dailyupload", "driversdata", dni, idRegistro), {
+          aniomesdia: dataArray[2] + m + d,
           dni: dataArray[0],
           fecha: dataArray[1],
           anio: dataArray[2],

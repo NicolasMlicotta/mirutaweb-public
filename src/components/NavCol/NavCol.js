@@ -35,7 +35,7 @@ function NavCol({ navigation }) {
           <NavItem to="/novedades" text="Visualizar" />
         </>
       )}
-      <span
+      {/* <span
         className="navcol-link"
         onClick={() =>
           setdDropdown({
@@ -46,13 +46,13 @@ function NavCol({ navigation }) {
       >
         <FaRegLightbulb style={{ marginRight: "1rem", fontSize: 20 }} />{" "}
         Feedbacks
-      </span>
-      {dropdown.feedbacks && (
+      </span> */}
+      {/* {dropdown.feedbacks && (
         <>
           <NavItem to="/feedbacks/Pendiente" text="Pendientes" />
           <NavItem to="/feedbacks/Resuelto" text="Resueltos" />
         </>
-      )}
+      )} */}
       <span
         className="navcol-link"
         onClick={() =>
@@ -77,7 +77,7 @@ function NavCol({ navigation }) {
         <FiTarget style={{ marginRight: "1rem", fontSize: 20 }} /> Indicadores
       </span>
 
-      <NavItem to="/" text="Desafíos" main={true} />
+      {/* <NavItem to="/" text="Desafíos" main={true} /> */}
     </div>
   );
 }
