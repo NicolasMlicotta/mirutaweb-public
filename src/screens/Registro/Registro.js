@@ -6,6 +6,7 @@ import { doc, setDoc, getFirestore } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import "./Registro.css";
 import { FaWindows } from "react-icons/fa";
+import CustomButton from "../../components/CustomButton/CustomButton";
 
 const Registro = () => {
   const app = initializeApp(firebaseConfig);
@@ -66,7 +67,7 @@ const Registro = () => {
   };
   return (
     <div className="registro-container">
-      <h1>Registro</h1>
+      <h1>Registro de Usuarios</h1>
       <div className="formulario">
         <input
           type="number"
@@ -115,7 +116,7 @@ const Registro = () => {
           <option value="Ayudante">Ayudante</option>
           <option value="Administrativo">Administrativo</option>
         </select>
-        <button onClick={() => registrar()}>Registrar</button>
+        <CustomButton onClick={() => registrar()} text="Registrar Usuario" />
       </div>
     </div>
   );

@@ -9,6 +9,10 @@
   height: 4rem;
 }
 
+.rotateMenu {
+  transform: rotate(90deg);
+}
+
 .nav-dropdown-cont {
   display: block;
   flex-direction: column;

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import NavItem from "./NavItem/NavItem";
 import "./NavCol.css";
 import { FaRegNewspaper } from "react-icons/fa";
-import { FaRegLightbulb } from "react-icons/fa";
 import { IoBeerOutline } from "react-icons/io5";
 import { FiTarget } from "react-icons/fi";
+import { AiOutlineUser } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
 function NavCol({ navigation }) {
@@ -13,6 +13,7 @@ function NavCol({ navigation }) {
     feedbacks: false,
     sku: false,
     novedades: false,
+    usuarios: false,
   });
 
   return (
@@ -72,12 +73,29 @@ function NavCol({ navigation }) {
         </>
       )}
 
+      <span
+        className="navcol-link"
+        onClick={() =>
+          setdDropdown({
+            ...dropdown,
+            usuarios: !dropdown.usuarios,
+          })
+        }
+      >
+        {" "}
+        <AiOutlineUser style={{ marginRight: "1rem", fontSize: 20 }} /> Usuarios
+      </span>
+      {dropdown.usuarios && (
+        <>
+          <NavItem to="/registro" text="Registrar Usuario" />
+          {/* <NavItem to="/" text="Editar Usuario" /> */}
+        </>
+      )}
       <span className="navcol-link" onClick={() => navigate("/indicadores")}>
         {" "}
         <FiTarget style={{ marginRight: "1rem", fontSize: 20 }} /> Indicadores
       </span>
 
-      <NavItem to="/registro" text="Agregar Usuario" main={true} />
       {/* <NavItem to="/" text="Desafíos" main={true} /> */}
     </div>
   );

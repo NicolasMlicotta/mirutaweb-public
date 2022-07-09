@@ -14,8 +14,9 @@ function NavBar({ isAuthenticated, toggle, setToggle }) {
           <HiOutlineMenu
             color="white"
             fontSize={50}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", transform: [{ rotate: "90deg" }] }}
             onClick={() => setToggle(!toggle)}
+            className={toggle && "rotateMenu"}
           />
           <h1 className="logo">MiRuta</h1>
         </div>
