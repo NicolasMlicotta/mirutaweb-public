@@ -10,20 +10,21 @@
 }
 
 .navcol-link {
-  color: white;
+  color: black;
   font-size: 1.2rem;
   width: 300px;
   text-align: left;
   padding-inline: 1.2rem;
   padding-block: 0.5rem;
-  border-bottom: 2px solid white;
+  border-top: 2px solid black;
   text-decoration: none;
-  background: #232323;
+  background: white;
   display: flex;
   align-items: center;
 }
 .navcol-link:hover {
-  color: white;
+  color: black;
+  text-decoration: underline;
 }
 
 p.navcol-text {

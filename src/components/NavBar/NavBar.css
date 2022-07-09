@@ -4,7 +4,7 @@
   align-items: center;
   width: 100%;
   padding-block: 1rem;
-  background: #232323;
+  background: black;
   /* background-image: url("../../img/header-min.jpg"); */
   height: 4rem;
 }
@@ -32,12 +32,20 @@
   align-items: center;
 }
 
-h1.logo {
+.logo {
   width: 100%;
   color: white;
-  font-style: italic;
+  font-family: "Roboto";
   margin-left: 1rem;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
 }
+.logo:hover {
+  font-size: 30px;
+  text-decoration: underline;
+}
+
 ul.ul-nav {
   display: flex;
   justify-content: space-around;

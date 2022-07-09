@@ -18,7 +18,9 @@ function NavBar({ isAuthenticated, toggle, setToggle }) {
             onClick={() => setToggle(!toggle)}
             className={toggle && "rotateMenu"}
           />
-          <h1 className="logo">MiRuta</h1>
+          <Link className="logo" to="/novedades">
+            MiRuta
+          </Link>
         </div>
       </div>
       {isAuthenticated && (

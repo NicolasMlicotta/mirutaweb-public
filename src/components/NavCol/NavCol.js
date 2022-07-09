@@ -6,8 +6,10 @@ import { IoBeerOutline } from "react-icons/io5";
 import { FiTarget } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function NavCol({ navigation }) {
+  const route = useLocation().pathname;
   let navigate = useNavigate();
   const [dropdown, setdDropdown] = useState({
     feedbacks: false,
@@ -32,8 +34,8 @@ function NavCol({ navigation }) {
       </span>
       {dropdown.novedades && (
         <>
-          <NavItem to="/cargarNovedad" text="Cargar" />
-          <NavItem to="/novedades" text="Visualizar" />
+          <NavItem to="/cargarNovedad" text="Cargar" route={route} />
+          <NavItem to="/novedades" text="Visualizar" route={route} />
         </>
       )}
       {/* <span
@@ -68,8 +70,8 @@ function NavCol({ navigation }) {
       </span>
       {dropdown.sku && (
         <>
-          <NavItem to="/buscarsku" text="Buscar" />
-          <NavItem to="/nuevosku" text="Agregar" />
+          <NavItem to="/buscarsku" text="Buscar" route={route} />
+          <NavItem to="/nuevosku" text="Agregar" route={route} />
         </>
       )}
 
@@ -83,11 +85,12 @@ function NavCol({ navigation }) {
         }
       >
         {" "}
-        <AiOutlineUser style={{ marginRight: "1rem", fontSize: 20 }} /> Usuarios
+        <AiOutlineUser style={{ marginRight: "1rem", fontSize: 20 }} />
+        Usuarios
       </span>
       {dropdown.usuarios && (
         <>
-          <NavItem to="/registro" text="Registrar Usuario" />
+          <NavItem to="/registro" text="Registrar Usuario" route={route} />
           {/* <NavItem to="/" text="Editar Usuario" /> */}
         </>
       )}
