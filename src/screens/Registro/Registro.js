@@ -5,6 +5,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc, getFirestore } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import "./Registro.css";
+import { FaWindows } from "react-icons/fa";
 
 const Registro = () => {
   const app = initializeApp(firebaseConfig);
@@ -30,6 +31,10 @@ const Registro = () => {
 
   const registrar = () => {
     const mail = dni + "_choferescmq@miruta.com";
+    if (nombre.trim() === "" || apellido.trim() === "" || dni.trim() === "") {
+      window.alert("Complete todos los campos");
+      return;
+    }
     createUserWithEmailAndPassword(auth, mail, "123456")
       .then((userCredential) => {
         // Signed in

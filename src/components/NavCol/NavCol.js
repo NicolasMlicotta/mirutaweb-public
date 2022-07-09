@@ -77,6 +77,7 @@ function NavCol({ navigation }) {
         <FiTarget style={{ marginRight: "1rem", fontSize: 20 }} /> Indicadores
       </span>
 
+      <NavItem to="/registro" text="Agregar Usuario" main={true} />
       {/* <NavItem to="/" text="Desafíos" main={true} /> */}
     </div>
   );

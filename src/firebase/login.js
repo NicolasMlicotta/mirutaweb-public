@@ -2,7 +2,7 @@
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import getUser from "./getUser";
 
-const login = (dni, password, action, setUserData) => {
+const login = (dni, password, action, setUserData, isAuthenticated) => {
   const auth = getAuth();
 
   if (action == "login") {
@@ -24,6 +24,7 @@ const login = (dni, password, action, setUserData) => {
       .then(() => {
         // Sign-out successful.
         setUserData(false);
+        isAuthenticated.current = false;
         return true;
       })
       .catch((error) => {

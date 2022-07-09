@@ -17,7 +17,7 @@ import NuevoSku from "./screens/NuevoSku/NuevoSku";
 import CargarNovedad from "./screens/CargarNovedad/CargarNovedad";
 import { getAuth } from "firebase/auth";
 import UserContext from "./context/UserContext";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import PrivateRoute from "./components/PrivateRoute";
 import getUser from "./firebase/getUser";
@@ -25,12 +25,12 @@ import { initializeApp } from "firebase/app";
 import firebaseConfig from "./firebase/firebaseConfig";
 
 function App() {
-  //setUserData lo uso en el login y en la verificación en appjs si ya está logueado
   const [userData, setUserData] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [toggle, setToggle] = useState(false);
   const auth = getAuth();
   const app = initializeApp(firebaseConfig);
+  const refContainer = useRef(0);
 
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
@@ -60,7 +60,7 @@ function App() {
               <Route
                 path="/feedbacks/:estado"
                 element={
-                  <PrivateRoute isAuthenticated={isAuthenticated}>
+                  <PrivateRoute>
                     <Feedbacks />
                   </PrivateRoute>
                 }
@@ -68,7 +68,7 @@ function App() {
               <Route
                 path="/indicadores"
                 element={
-                  <PrivateRoute isAuthenticated={isAuthenticated}>
+                  <PrivateRoute>
                     <CargarIndicadores />
                   </PrivateRoute>
                 }
@@ -76,7 +76,7 @@ function App() {
               <Route
                 path="/nuevosku"
                 element={
-                  <PrivateRoute isAuthenticated={isAuthenticated}>
+                  <PrivateRoute>
                     <NuevoSku />
                   </PrivateRoute>
                 }
@@ -84,7 +84,7 @@ function App() {
               <Route
                 path="/buscarsku"
                 element={
-                  <PrivateRoute isAuthenticated={isAuthenticated}>
+                  <PrivateRoute>
                     <BuscarSku />
                   </PrivateRoute>
                 }
@@ -92,7 +92,7 @@ function App() {
               <Route
                 path="/registro"
                 element={
-                  <PrivateRoute isAuthenticated={isAuthenticated}>
+                  <PrivateRoute>
                     <Registro />
                   </PrivateRoute>
                 }
@@ -100,7 +100,7 @@ function App() {
               <Route
                 path="/responderfeedback"
                 element={
-                  <PrivateRoute isAuthenticated={isAuthenticated}>
+                  <PrivateRoute>
                     <FeedbackResponder />
                   </PrivateRoute>
                 }
@@ -108,7 +108,7 @@ function App() {
               <Route
                 path="/novedades"
                 element={
-                  <PrivateRoute isAuthenticated={isAuthenticated}>
+                  <PrivateRoute>
                     <Novedades />
                   </PrivateRoute>
                 }
@@ -116,7 +116,7 @@ function App() {
               <Route
                 path="/CargarNovedad"
                 element={
-                  <PrivateRoute isAuthenticated={isAuthenticated}>
+                  <PrivateRoute>
                     <CargarNovedad />
                   </PrivateRoute>
                 }
