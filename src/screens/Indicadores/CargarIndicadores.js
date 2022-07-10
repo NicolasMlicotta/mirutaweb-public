@@ -13,7 +13,7 @@ function CargarIndicadores() {
     uploadData(setLoading);
   };
   return (
-    <div>
+    <div className="cargar-indicadores-wrapper">
       <Titulo>Cargar Indicadores</Titulo>
       <Loading loading={loading}>
         <div className="cargar-feedbacks-container">
