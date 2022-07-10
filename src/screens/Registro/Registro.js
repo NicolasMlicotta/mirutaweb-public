@@ -57,7 +57,7 @@ const Registro = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        window.alert("Error al registrar el usuario" + errorMessage);
+        window.alert("Error al registrar el usuario " + errorMessage);
         // ..
       });
   };
