@@ -3,8 +3,6 @@ import styles from "./NavItem.module.css";
 import { Link } from "react-router-dom";
 
 function NavItem({ to, text, main, route }) {
-  console.log("route", route);
-  console.log("to", to);
   let bold = {};
   if (to === route) {
     bold = { fontWeight: "bold" };

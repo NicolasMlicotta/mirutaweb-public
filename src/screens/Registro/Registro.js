@@ -51,18 +51,13 @@ const Registro = () => {
           uid: uid,
           email: email,
         };
-        console.log(objeto);
-
         crearUserFirestore(mail, objeto);
 
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
-        window.alert("Error al registrar el usuario", errorMessage);
+        window.alert("Error al registrar el usuario" + errorMessage);
         // ..
       });
   };
