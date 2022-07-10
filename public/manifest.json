@@ -1,6 +1,6 @@
 {
-  "short_name": "Workstation",
-  "name": "Workstation Rosario",
+  "short_name": "Mi Ruta",
+  "name": "Mi Ruta Rosario",
 
   "start_url": ".",
   "display": "standalone",
