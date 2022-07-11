@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./CargarNovedad.css";
 import Loading from "../../components/Loading/Loading";
 import getDb from "../../firebase/getDb";
-import { addDoc, doc, collection } from "firebase/firestore";
+import { addDoc, doc, collection, serverTimestamp } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Formik, Field } from "formik";
 import Titulo from "../../components/Titulo/Titulo";
@@ -21,6 +21,7 @@ function CargarNovedad() {
       titulo: titulo,
       texto: texto,
       imgurl: null,
+      fechaCreacion: serverTimestamp(),
     };
     if (imagen != null) {
       uploadImage(imagen, objeto);

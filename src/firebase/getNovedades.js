@@ -7,7 +7,7 @@ async function getNovedades() {
     const q = query(
       collection(db, "novedades"),
       limit(15),
-      orderBy("fecha", "desc")
+      orderBy("fechaCreacion", "desc")
     );
     const items = [];
     const querySnapshot = await getDocs(q);
