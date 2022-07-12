@@ -20,12 +20,9 @@ const Registro = () => {
 
   const crearUserFirestore = (uid, objeto) => {
     const db = getFirestore(app);
-    console.log("cargando.....");
-
     // Add a new document in collection "cities"
     setDoc(doc(db, "usuarios", uid), objeto)
       .then(() => {
-        console.log("ok subido");
         alert("Usuario Registrado");
       })
       .catch();
