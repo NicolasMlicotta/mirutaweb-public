@@ -65,7 +65,7 @@ const Login = () => {
         ) : (
           <div>
             <div className="formulario-logout">
-              <h1>{userData.nombre + " " + userData.apellido} </h1>
+              <h1>{userData?.nombre + " " + userData?.apellido} </h1>
               <CustomButton
                 onClick={() => login(null, null, "logout", setUserData)}
                 text="Cerrar Sesión"

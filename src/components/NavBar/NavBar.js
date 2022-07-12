@@ -27,7 +27,7 @@ function NavBar({ isAuthenticated, toggle, setToggle }) {
         <div className="right-container">
           <ul className="ul-profile">
             <Link to="login" className="nav-link-profile">
-              {userData.nombre} {userData.apellido}
+              {userData?.nombre} {userData?.apellido}
             </Link>
           </ul>
         </div>
