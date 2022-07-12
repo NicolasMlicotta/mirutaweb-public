@@ -15,6 +15,7 @@ const Registro = () => {
   const [dni, setDni] = useState("");
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
+  const [password, setPassword] = useState("");
   const auth = getAuth();
 
   const crearUserFirestore = (uid, objeto) => {
@@ -32,11 +33,22 @@ const Registro = () => {
 
   const registrar = () => {
     const mail = dni + "_choferescmq@miruta.com";
-    if (nombre.trim() === "" || apellido.trim() === "" || dni.trim() === "") {
+    let passOk;
+    if (selectOL == "CMQ") {
+      passOk = password;
+    } else {
+      passOk = "123456";
+    }
+    if (
+      nombre.trim() === "" ||
+      apellido.trim() === "" ||
+      dni.trim() === "" ||
+      passOk.trim() === ""
+    ) {
       window.alert("Complete todos los campos");
       return;
     }
-    createUserWithEmailAndPassword(auth, mail, "123456")
+    createUserWithEmailAndPassword(auth, mail, passOk)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
@@ -75,17 +87,27 @@ const Registro = () => {
         <input
           value={nombre}
           type="text"
-          placeholder="nombre"
+          placeholder="Nombre"
           className="input-text"
           onChange={(e) => setNombre(e.target.value)}
         />
         <input
           value={apellido}
           type="text"
-          placeholder="apellido"
+          placeholder="Apellido"
           className="input-text"
           onChange={(e) => setApellido(e.target.value)}
         />
+        {selectOL === "CMQ" && (
+          <input
+            value={password}
+            type="password"
+            placeholder="Contraseña"
+            className="input-text"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        )}
+
         <label htmlFor="ol">Organización:</label>
         <select
           name="ol"
@@ -104,7 +126,7 @@ const Registro = () => {
           name="rol"
           id="rol"
           onChange={(e) => setSelectRol(e.target.value)}
-          className="select-rol"
+          className="select-ol"
           value={selectRol}
         >
           <option value="CMQ">CMQ</option>
@@ -112,6 +134,7 @@ const Registro = () => {
           <option value="Ayudante">Ayudante</option>
           <option value="Administrativo">Administrativo</option>
         </select>
+
         <CustomButton onClick={() => registrar()} text="Registrar Usuario" />
       </div>
     </div>
