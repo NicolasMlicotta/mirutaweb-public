@@ -5,24 +5,39 @@ import { Formik } from "formik";
 import Titulo from "../../components/Titulo/Titulo";
 import "./NuevoSku.css";
 import CustomButton from "../../components/CustomButton/CustomButton";
+import { useLocation } from "react-router-dom";
 
 function NuevoSku() {
+  const { Descripcion, ImgUrl, Tipo, UnidadesBulto, idsku } =
+    useLocation().state;
   const [imagen, setImagen] = useState(null);
   const [cargando, setCargando] = useState(false);
-  const [skudata, setSkudata] = useState({
-    sku: "",
-    tipo: "",
-    descripcion: "",
-    unidades: "",
-  });
+  console.log(Descripcion);
+  console.log(ImgUrl);
+  let skudata = {};
+  if (idsku != "") {
+    skudata = {
+      sku: idsku,
+      tipo: Tipo,
+      descripcion: Descripcion,
+      unidades: UnidadesBulto,
+      file: ImgUrl,
+    };
+  } else {
+    skudata = {
+      sku: "",
+      tipo: "",
+      descripcion: "",
+      unidades: "",
+    };
+  }
   const handleImagen = (event) => {
     const pesoMb = event.currentTarget.files[0].size / 1000000;
-    console.log(pesoMb + "Mb");
-    if (pesoMb < 1) {
+    if (pesoMb < 0.3) {
       setImagen(event.currentTarget.files[0]);
     } else {
       window.alert(
-        "La imagen supera 1Mb de peso. Por favor comprimila antes de subirla."
+        "La imagen supera 0.3Mb de peso. Por favor comprimila antes de subirla."
       );
       setImagen(null);
       return;
@@ -107,12 +122,13 @@ function NuevoSku() {
                   />
                 </div>
                 <h3 className="formik-img-subir">
-                  Por favor subí una imagen cuadrada y que pese menos de 1 Mb
+                  Por favor subí una imagen cuadrada y que pese menos de 0.3Mb
                   <br></br>
                   <a href="https://imagecompressor.com/es/" target={"_blank"}>
                     Acá podés comprimir el tamaño de la imagen
                   </a>
                 </h3>
+
                 <div className="formik-img-subir">
                   <input
                     id="file"
@@ -121,15 +137,18 @@ function NuevoSku() {
                     onChange={handleImagen}
                     className="cargar-sku"
                   />
-                  {imagen && (
+                  {imagen ? (
                     <img
                       src={URL.createObjectURL(imagen)}
                       alt=""
                       width="200px"
                       height="200px"
                     />
-                  )}{" "}
+                  ) : (
+                    <img src={ImgUrl} alt="" width="200px" height="200px" />
+                  )}
                 </div>
+
                 <CustomButton text="Agregar Nuevo SKU" onClick={handleSubmit} />
               </form>
             </div>

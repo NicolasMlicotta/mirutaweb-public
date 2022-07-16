@@ -1,0 +1,14 @@
+.link {
+  text-decoration: none;
+}
+
+.link:hover {
+  color: inherit;
+  text-decoration: inherit;
+  font-weight: bold;
+}
+
+.link:visited {
+  color: inherit;
+  text-decoration: inherit;
+}

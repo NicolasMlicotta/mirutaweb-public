@@ -14,3 +14,8 @@
   border: 1px solid rgba(0, 0, 0, 0.5);
   box-shadow: 0.5rem 0.5rem 2px 1px rgba(0, 0, 0, 0.2);
 }
+.mostrarsku-editbutton {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

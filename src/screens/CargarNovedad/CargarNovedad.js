@@ -30,13 +30,13 @@ function CargarNovedad() {
     }
   };
   const handleImagen = (event) => {
-    const pesoMb = event.currentTarget.files[0].size / 500000;
+    const pesoMb = event.currentTarget.files[0].size / 1000000;
     console.log(pesoMb + "Mb");
-    if (pesoMb < 1) {
+    if (pesoMb < 0.3) {
       setImagen(event.currentTarget.files[0]);
     } else {
       window.alert(
-        "La imagen supera 0.5Mb de peso. Por favor comprimila antes de subirla."
+        "La imagen supera 0.3Mb de peso. Por favor comprimila antes de subirla."
       );
       setImagen(null);
       return;
@@ -111,7 +111,7 @@ function CargarNovedad() {
                 className="novedad-input-area"
               />
               <h3>
-                Por favor subí una imagen que sea cuadrada y pese menos de 0.5
+                Por favor subí una imagen que sea cuadrada y pese menos de 0.3
                 Mb.
               </h3>
               <h3>

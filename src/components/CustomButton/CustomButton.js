@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Colors from "../../utilities/Colors";
 
 const theme = createTheme({
   palette: {
@@ -8,7 +9,7 @@ const theme = createTheme({
       main: "#00695f",
     },
     secondary: {
-      main: "#1c54b2",
+      main: Colors.titleBackground,
     },
   },
 });
