@@ -16,7 +16,6 @@ const login = (dni, password, action, setUserData, isAuthenticated) => {
         return true;
       })
       .catch((error) => {
-        alert("Error. Por favor intente nuevamente.");
         return false;
       });
   } else if (action == "logout") {
@@ -29,7 +28,6 @@ const login = (dni, password, action, setUserData, isAuthenticated) => {
       })
       .catch((error) => {
         // An error happened.
-        alert("Error. Por favor intente nuevamente.");
         return false;
       });
   }
