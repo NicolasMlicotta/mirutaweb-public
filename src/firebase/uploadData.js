@@ -72,7 +72,7 @@ const uploadData = (setLoading) => {
     //shift remueve la primer fila, ya que contiene los títulos de columnas
     datos.shift();
     //función para subir individualmente cada documento (fila del sheet)
-    const uploadDocument = async (dataArray) => {
+    const uploadDocument = async (dataArray, index) => {
       let dni = dataArray[0];
       let m = "";
       let d = "";
@@ -123,18 +123,18 @@ const uploadData = (setLoading) => {
           tgt_rmd_cantidad: dataArray[34],
           tgt_prom_rmd: dataArray[35],
         });
+        if (datos.length - 1 === index) {
+          window.alert("Datos cargados correctamente");
+          setLoading(false);
+        }
       } catch (error) {
         console.log(error);
         window.alert("Ocurrió un error cargando los datos. Intentá nuevamente");
       }
     };
     //llama uploadDocument por cada fila con datos leída
-    const individuales = datos.map((dato, index, array) => {
-      uploadDocument(dato);
-      if (array.length - 1 === index) {
-        window.alert("Datos cargados correctamente");
-        setLoading(false);
-      }
+    const individuales = datos.map((dato, index) => {
+      uploadDocument(dato, index);
     });
   }
   gapi.load("client", initClient);
