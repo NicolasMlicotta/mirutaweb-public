@@ -34,7 +34,7 @@ function MostrarSku({ data }) {
         </div>
       </ul>
       {data.sku != "" && (
-        <LinkSinEstilos to="/nuevosku" state={data}>
+        <LinkSinEstilos to="/editarsku" state={data}>
           <div className="mostrarsku-editbutton">
             <p>Editar</p>
             <BiEdit size={24} />

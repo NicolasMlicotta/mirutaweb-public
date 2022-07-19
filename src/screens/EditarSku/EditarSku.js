@@ -3,21 +3,25 @@ import agregarSku from "../../firebase/agregarSku";
 import ReactLoading from "react-loading";
 import { Formik } from "formik";
 import Titulo from "../../components/Titulo/Titulo";
-import "./NuevoSku.css";
+import "../NuevoSku/NuevoSku.css";
 import CustomButton from "../../components/CustomButton/CustomButton";
+import { useLocation } from "react-router-dom";
 
-function NuevoSku() {
+function EditarSku() {
+  const location = useLocation();
+  const { Descripcion, ImgUrl, Tipo, UnidadesBulto, idsku } = location.state;
   const [imagen, setImagen] = useState(null);
   const [cargando, setCargando] = useState(false);
-  const [skudata, setSkudata] = useState({
-    sku: "",
-    tipo: "",
-    descripcion: "",
-    unidades: "",
-  });
+  let skudata = {
+    sku: idsku,
+    tipo: Tipo,
+    descripcion: Descripcion,
+    unidades: UnidadesBulto,
+    url: ImgUrl,
+  };
+
   const handleImagen = (event) => {
     const pesoMb = event.currentTarget.files[0].size / 1000000;
-    console.log(pesoMb + "Mb");
     if (pesoMb < 0.3) {
       setImagen(event.currentTarget.files[0]);
     } else {
@@ -30,7 +34,7 @@ function NuevoSku() {
   };
   return (
     <div>
-      <Titulo>Agregar SKU</Titulo>
+      <Titulo>Editar SKU</Titulo>
       {cargando ? (
         <ReactLoading
           type={"spinningBubbles"}
@@ -113,6 +117,7 @@ function NuevoSku() {
                     Acá podés comprimir el tamaño de la imagen
                   </a>
                 </h3>
+
                 <div className="formik-img-subir">
                   <input
                     id="file"
@@ -121,16 +126,19 @@ function NuevoSku() {
                     onChange={handleImagen}
                     className="cargar-sku"
                   />
-                  {imagen && (
+                  {imagen ? (
                     <img
                       src={URL.createObjectURL(imagen)}
                       alt=""
                       width="200px"
                       height="200px"
                     />
-                  )}{" "}
+                  ) : (
+                    <img src={ImgUrl} alt="" width="200px" height="200px" />
+                  )}
                 </div>
-                <CustomButton text="Agregar Nuevo SKU" onClick={handleSubmit} />
+
+                <CustomButton text="Editar SKU" onClick={handleSubmit} />
               </form>
             </div>
           )}
@@ -139,5 +147,4 @@ function NuevoSku() {
     </div>
   );
 }
-
-export default NuevoSku;
+export default EditarSku;

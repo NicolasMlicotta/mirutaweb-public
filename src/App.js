@@ -15,6 +15,7 @@ import Novedades from "./screens/Novedades/Novedades";
 import NavCol from "./components/NavCol/NavCol";
 import NuevoSku from "./screens/NuevoSku/NuevoSku";
 import CargarNovedad from "./screens/CargarNovedad/CargarNovedad";
+import EditarSku from "./screens/EditarSku/EditarSku";
 import { getAuth } from "firebase/auth";
 import UserContext from "./context/UserContext";
 import { useEffect, useState, useRef } from "react";
@@ -118,6 +119,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <CargarNovedad />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/editarsku"
+                element={
+                  <PrivateRoute>
+                    <EditarSku />
                   </PrivateRoute>
                 }
               />

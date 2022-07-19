@@ -5,14 +5,10 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 const app = initializeApp(firebaseConfig);
 let url = null;
 const agregarSku = (
-  { sku, tipo, descripcion, unidades },
+  { sku, tipo, descripcion, unidades, url },
   imagen,
   setCargando
 ) => {
-  //      initialValues={{ sku: "", tipo: "", descripcion: "", unidades: "" }}
-  //db = skudb
-  //docid = sku
-  //idsku, Tipo, Descripcion, UnidadesBulto, ImgUrl
   let objeto = {
     idsku: sku.toString(),
     Tipo: tipo,
