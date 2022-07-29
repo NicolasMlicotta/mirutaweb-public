@@ -78,9 +78,13 @@ const uploadData = (setLoading) => {
       let d = "";
       if (dataArray[3].length == 1) {
         m = "0" + dataArray[3];
+      } else {
+        m = dataArray[3];
       }
       if (dataArray[4].length == 1) {
         d = "0" + dataArray[4];
+      } else {
+        d = dataArray[4];
       }
       let idRegistro = dataArray[2] + dataArray[3] + dataArray[4];
       try {
