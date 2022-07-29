@@ -3,9 +3,8 @@ import firebaseConfig from "./firebaseConfig";
 import { doc, setDoc, getFirestore } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 const app = initializeApp(firebaseConfig);
-let url = null;
 const agregarSku = (
-  { sku, tipo, descripcion, unidades, url },
+  { sku, tipo, descripcion, unidades },
   imagen,
   setCargando
 ) => {
@@ -14,7 +13,7 @@ const agregarSku = (
     Tipo: tipo,
     Descripcion: descripcion,
     UnidadesBulto: unidades,
-    ImgUrl: url,
+    ImgUrl: null,
   };
 
   if (imagen != null) {

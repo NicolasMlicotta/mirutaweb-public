@@ -128,7 +128,7 @@ function NuevoSku() {
                       width="200px"
                       height="200px"
                     />
-                  )}{" "}
+                  )}
                 </div>
                 <CustomButton text="Agregar Nuevo SKU" onClick={handleSubmit} />
               </form>

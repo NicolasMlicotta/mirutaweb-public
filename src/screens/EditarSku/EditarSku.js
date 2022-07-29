@@ -12,14 +12,17 @@ function EditarSku() {
   const { Descripcion, ImgUrl, Tipo, UnidadesBulto, idsku } = location.state;
   const [imagen, setImagen] = useState(null);
   const [cargando, setCargando] = useState(false);
+  let urlOk = null;
+  if (ImgUrl != null) {
+    urlOk = ImgUrl;
+  }
   let skudata = {
     sku: idsku,
     tipo: Tipo,
     descripcion: Descripcion,
     unidades: UnidadesBulto,
-    url: ImgUrl,
+    url: urlOk,
   };
-
   const handleImagen = (event) => {
     const pesoMb = event.currentTarget.files[0].size / 1000000;
     if (pesoMb < 0.3) {
