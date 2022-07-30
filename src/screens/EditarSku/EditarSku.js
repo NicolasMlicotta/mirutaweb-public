@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import agregarSku from "../../firebase/agregarSku";
-import ReactLoading from "react-loading";
 import { Formik } from "formik";
 import Titulo from "../../components/Titulo/Titulo";
 import "../NuevoSku/NuevoSku.css";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import { useLocation } from "react-router-dom";
+import Loading from "../../components/Loading/Loading";
+import { useNavigate } from "react-router-dom";
 
 function EditarSku() {
   const location = useLocation();
+  let navigate = useNavigate();
   const { Descripcion, ImgUrl, Tipo, UnidadesBulto, idsku } = location.state;
   const [imagen, setImagen] = useState(null);
-  const [cargando, setCargando] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const redirect = () => {
+    navigate("/buscarsku", { replace: true });
+  };
+
   let urlOk = null;
   if (ImgUrl != null) {
     urlOk = ImgUrl;
@@ -38,14 +45,7 @@ function EditarSku() {
   return (
     <div>
       <Titulo>Editar SKU</Titulo>
-      {cargando ? (
-        <ReactLoading
-          type={"spinningBubbles"}
-          color={"black"}
-          height={50}
-          width={50}
-        />
-      ) : (
+      <Loading loading={loading}>
         <Formik
           initialValues={skudata}
           validate={(values) => {
@@ -55,9 +55,15 @@ function EditarSku() {
             }
             return errors;
           }}
-          onSubmit={(values) => {
-            setCargando(true);
-            agregarSku(values, imagen, setCargando);
+          onSubmit={(values, { resetForm }) => {
+            agregarSku(
+              values,
+              imagen,
+              resetForm,
+              setImagen,
+              setLoading,
+              redirect
+            );
           }}
         >
           {({
@@ -146,7 +152,7 @@ function EditarSku() {
             </div>
           )}
         </Formik>
-      )}
+      </Loading>
     </div>
   );
 }

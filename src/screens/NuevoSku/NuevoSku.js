@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import agregarSku from "../../firebase/agregarSku";
-import ReactLoading from "react-loading";
 import { Formik } from "formik";
 import Titulo from "../../components/Titulo/Titulo";
 import "./NuevoSku.css";
 import CustomButton from "../../components/CustomButton/CustomButton";
+import Loading from "../../components/Loading/Loading";
 
 function NuevoSku() {
   const [imagen, setImagen] = useState(null);
-  const [cargando, setCargando] = useState(false);
-  const [skudata, setSkudata] = useState({
+  const [loading, setLoading] = useState(false);
+  const skudata = {
     sku: "",
     tipo: "",
     descripcion: "",
     unidades: "",
-  });
+  };
   const handleImagen = (event) => {
     const pesoMb = event.currentTarget.files[0].size / 1000000;
     console.log(pesoMb + "Mb");
@@ -31,14 +31,7 @@ function NuevoSku() {
   return (
     <div>
       <Titulo>Agregar SKU</Titulo>
-      {cargando ? (
-        <ReactLoading
-          type={"spinningBubbles"}
-          color={"black"}
-          height={50}
-          width={50}
-        />
-      ) : (
+      <Loading loading={loading}>
         <Formik
           initialValues={skudata}
           validate={(values) => {
@@ -48,9 +41,8 @@ function NuevoSku() {
             }
             return errors;
           }}
-          onSubmit={(values) => {
-            setCargando(true);
-            agregarSku(values, imagen, setCargando);
+          onSubmit={(values, { resetForm }) => {
+            agregarSku(values, imagen, resetForm, setImagen, setLoading);
           }}
         >
           {({
@@ -135,7 +127,7 @@ function NuevoSku() {
             </div>
           )}
         </Formik>
-      )}
+      </Loading>
     </div>
   );
 }

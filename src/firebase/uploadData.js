@@ -1,33 +1,8 @@
 import { setDoc, doc } from "firebase/firestore";
 import getDb from "./getDb";
 
-// 0: "dni"
-// 1: "fecha"
-// 2: "anio"
-// 3: "mes"
-// 4: "dia"
-// 5: "semana"
-// 6: "pedidos_ruteados"
-// 7: "pedidos_rechazados"
-// 8: "bultos_ruteado"
-// 9: "bultos_rechazados"
-// 10: "pedidos_cerrado"
-// 11: "bultos_cerrado"
-// 12: "pedidos_mal_facturado"
-// 13: "bultos_mal_facturado"
-// 14: "sin_dinero"
-// 15: "sin_envases"
-// 16: "dqi"
-// 17: "rmd_cantidad"
-// 18: "rmd_puntaje"
-// 19: "modulaciones"
-// 20: "no_modulados"
-// 21: "eficacia_modulaciones"
-// 22: "dispersion_km"
-// 23: "dispersion_tiempos"
-// 24: "inicio_cierre"
-
 const uploadData = (setLoading) => {
+  setLoading(true);
   const [db] = getDb();
   const API_KEY = "AIzaSyC-JZ7LYx9zu9CYJeVwTH-uRrPOMODTul0";
   const DISCOVERY_DOCS = [
@@ -60,32 +35,30 @@ const uploadData = (setLoading) => {
         spreadsheetId: spreadsheetId,
         range: range,
       })
-      .then(
-        function (response) {
-          WriteFirestore(response.result.values);
-        },
-        function (response) {}
-      );
+      .then(function (response) {
+        WriteFirestore(response.result.values);
+      });
   }
   async function WriteFirestore(datos) {
+    if (datos.length == 1) {
+      window.alert("Sheet sin datos");
+      setLoading(false);
+    }
     // const categorias = datos[0];
     //shift remueve la primer fila, ya que contiene los títulos de columnas
     datos.shift();
     //función para subir individualmente cada documento (fila del sheet)
     const uploadDocument = async (dataArray, index) => {
+      const numberFormat = (num) => {
+        if (num.length == 1) {
+          return "0" + num;
+        } else {
+          return num;
+        }
+      };
       let dni = dataArray[0];
-      let m = "";
-      let d = "";
-      if (dataArray[3].length == 1) {
-        m = "0" + dataArray[3];
-      } else {
-        m = dataArray[3];
-      }
-      if (dataArray[4].length == 1) {
-        d = "0" + dataArray[4];
-      } else {
-        d = dataArray[4];
-      }
+      let m = numberFormat(dataArray[3]);
+      let d = numberFormat(dataArray[4]);
       let idRegistro = dataArray[2] + dataArray[3] + dataArray[4];
       try {
         await setDoc(doc(db, "dailyupload", "driversdata", dni, idRegistro), {
@@ -130,7 +103,6 @@ const uploadData = (setLoading) => {
         if (datos.length - 1 === index) {
           window.alert("Datos cargados correctamente");
           setLoading(false);
-          //agregar limpiar sheet
         }
       } catch (error) {
         console.log(error);
@@ -138,7 +110,7 @@ const uploadData = (setLoading) => {
       }
     };
     //llama uploadDocument por cada fila con datos leída
-    const individuales = datos.map((dato, index) => {
+    datos.map((dato, index) => {
       uploadDocument(dato, index);
     });
   }

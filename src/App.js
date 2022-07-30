@@ -5,10 +5,8 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import NavBar from "./components/NavBar/NavBar";
 import CargarIndicadores from "./screens/Indicadores/CargarIndicadores";
-import Feedbacks from "./screens/Feedbacks/Feedbacks";
 import Registro from "./screens/Registro/Registro";
 import Login from "./screens/Login/Login";
-import FeedbackResponder from "./screens/FeedbackResponder/FeedbackResponder";
 import BuscarSku from "./screens/BuscarSku/BuscarSku";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Novedades from "./screens/Novedades/Novedades";
@@ -59,14 +57,6 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route index path="/" element={<Novedades />} />
               <Route
-                path="/feedbacks/:estado"
-                element={
-                  <PrivateRoute>
-                    <Feedbacks />
-                  </PrivateRoute>
-                }
-              />
-              <Route
                 path="/indicadores"
                 element={
                   <PrivateRoute>
@@ -98,14 +88,7 @@ function App() {
                   </PrivateRoute>
                 }
               />
-              <Route
-                path="/responderfeedback"
-                element={
-                  <PrivateRoute>
-                    <FeedbackResponder />
-                  </PrivateRoute>
-                }
-              />
+
               <Route
                 path="/novedades"
                 element={
