@@ -8,12 +8,6 @@ import Loading from "../../components/Loading/Loading";
 function CargarIndicadores() {
   const [checked, setChecked] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  // const SubirIndicadores = () => {
-  //   setLoading(true);
-  //   uploadData(setLoading);
-  // };
-
   return (
     <div className="cargar-indicadores-wrapper">
       <Titulo>Cargar Indicadores</Titulo>
