@@ -130,6 +130,7 @@ const uploadData = (setLoading) => {
         if (datos.length - 1 === index) {
           window.alert("Datos cargados correctamente");
           setLoading(false);
+          //agregar limpiar sheet
         }
       } catch (error) {
         console.log(error);

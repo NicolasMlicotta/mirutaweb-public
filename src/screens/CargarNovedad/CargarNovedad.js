@@ -77,10 +77,15 @@ function CargarNovedad() {
       <Titulo>Cargar Novedad</Titulo>
       <Loading loading={cargando}>
         <Formik
-          initialValues={{ titulo: "", texto: "" }}
+          initialValues={{ titulo: "", texto: "", cd: "seleccione" }}
           onSubmit={(values) => {
             setCargando(true);
-            AgregarNovedad(values, imagen);
+            if (values.cd != "seleccione" && values.titulo != "") {
+              AgregarNovedad(values, imagen);
+            } else {
+              window.alert("Seleccione CD y complete título");
+              setCargando(false);
+            }
           }}
         >
           {({
@@ -91,6 +96,19 @@ function CargarNovedad() {
             /* and other goodies */
           }) => (
             <form>
+              <select
+                name="cd"
+                id="cd"
+                className="novedad-select"
+                value={values.cd}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              >
+                <option value="seleccione">Seleccione CD</option>
+                <option value="ROS1">Rosario 1</option>
+                <option value="ROS2">Rosario 2</option>
+                <option value="SFE">Santa Fe</option>
+              </select>
               <input
                 type="text"
                 name="titulo"

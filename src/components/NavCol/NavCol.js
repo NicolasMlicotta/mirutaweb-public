@@ -70,8 +70,8 @@ function NavCol({ navigation }) {
       </span>
       {dropdown.sku && (
         <>
-          <NavItem to="/buscarsku" text="Buscar" route={route} />
           <NavItem to="/nuevosku" text="Agregar" route={route} />
+          <NavItem to="/buscarsku" text="Buscar/Editar" route={route} />
         </>
       )}
 
