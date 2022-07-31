@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../context/UserContext";
-import "./NavBar.css";
+import "./Header.css";
 import { HiOutlineMenu } from "react-icons/hi";
+import img from "../../img/icon.png";
 
-function NavBar({ isAuthenticated, toggle, setToggle }) {
+function Header({ isAuthenticated, toggle, setToggle }) {
   const [userData] = useContext(UserContext);
 
   return (
@@ -21,6 +22,13 @@ function NavBar({ isAuthenticated, toggle, setToggle }) {
           <Link className="logo" to="/novedades">
             MiRuta
           </Link>
+          <img
+            src={img}
+            alt="Imagen de la novedad"
+            height={"80px"}
+            width={"80px"}
+            style={{ borderRadius: "10px", marginLeft: "-1.8rem" }}
+          />
         </div>
       </div>
       {isAuthenticated && (
@@ -36,4 +44,4 @@ function NavBar({ isAuthenticated, toggle, setToggle }) {
   );
 }
 
-export default NavBar;
+export default Header;

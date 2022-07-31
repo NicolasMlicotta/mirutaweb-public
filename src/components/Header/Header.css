@@ -39,13 +39,12 @@
   width: 100%;
   color: white;
   font-family: "Roboto";
-  margin-left: 1rem;
+  margin-left: 1.2rem;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: bold;
 }
 .logo:hover {
-  font-size: 30px;
   text-decoration: underline;
 }
 

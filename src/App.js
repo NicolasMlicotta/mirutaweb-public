@@ -3,7 +3,7 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import NavBar from "./components/NavBar/NavBar";
+import Header from "./components/Header/Header";
 import CargarIndicadores from "./screens/Indicadores/CargarIndicadores";
 import Registro from "./screens/Registro/Registro";
 import Login from "./screens/Login/Login";
@@ -46,7 +46,7 @@ function App() {
     <div className="app">
       <UserContext.Provider value={[userData, setUserData]}>
         <BrowserRouter initial>
-          <NavBar
+          <Header
             isAuthenticated={isAuthenticated}
             toggle={toggle}
             setToggle={setToggle}
