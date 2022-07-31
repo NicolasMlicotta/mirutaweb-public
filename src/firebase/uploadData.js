@@ -9,7 +9,7 @@ const uploadData = (setLoading) => {
     "https://sheets.googleapis.com/$discovery/rest?version=v4",
   ];
   const spreadsheetId = "1Ou-pDb2tdYPu7xSu2LeGAc5jF0vofShBoP5XxLFvBOg";
-  const range = "DailyUpload!A:AJ";
+  const range = "DailyUpload!A:AX";
 
   /*global gapi*/
   function initClient() {
@@ -89,16 +89,34 @@ const uploadData = (setLoading) => {
           dispersion_tiempos: dataArray[23],
           inicio_cierre: dataArray[24],
           ontime_uso: dataArray[25],
-          tgt_pedidos_rechazados: dataArray[26],
-          tgt_bultos_rechazados: dataArray[27],
-          tgt_prom_disp_km: dataArray[28],
-          tgt_prom_disp_tiempo: dataArray[29],
-          tgt_prom_dqi: dataArray[30],
-          tgt_prom_eficacia_mod: dataArray[31],
-          tgt_prom_inicio_cierre: dataArray[32],
-          tgt_prom_uso_ontime: dataArray[33],
-          tgt_rmd_cantidad: dataArray[34],
-          tgt_prom_rmd: dataArray[35],
+          //------------------------ sumo pnp a indicadores
+          pnp: dataArray[26],
+          //------------------------ targets de la versión 1.0
+          tgt_pedidos_rechazados: dataArray[27],
+          tgt_bultos_rechazados: dataArray[28],
+          tgt_prom_disp_km: dataArray[29],
+          tgt_prom_disp_tiempo: dataArray[30],
+          tgt_prom_dqi: dataArray[31],
+          tgt_prom_eficacia_mod: dataArray[32],
+          tgt_prom_inicio_cierre: dataArray[33],
+          tgt_prom_uso_ontime: dataArray[34],
+          tgt_rmd_cantidad: dataArray[35],
+          tgt_prom_rmd: dataArray[36],
+          //-------------------------------- nuevos targets v2.0
+          tgt_no_mod: dataArray[37],
+          tgt_pnp: dataArray[38],
+          //----------------------------- posiciones v2.0
+          pos_rmd: dataArray[39],
+          pos_pdv_puntuados: dataArray[40],
+          pos_pedidos_rech: dataArray[41],
+          pos_bultos_rech: dataArray[42],
+          pos_eficacia_mod: dataArray[43],
+          pos_no_mod: dataArray[44],
+          pos_uso_bees: dataArray[45],
+          pos_inicio_cierre: dataArray[46],
+          pos_disp_km: dataArray[47],
+          pos_disp_tiempo: dataArray[48],
+          pos_pnp: dataArray[49],
         });
         if (datos.length - 1 === index) {
           window.alert("Datos cargados correctamente");

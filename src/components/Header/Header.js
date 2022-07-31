@@ -20,7 +20,7 @@ function Header({ isAuthenticated, toggle, setToggle }) {
             className={toggle && "rotateMenu"}
           />
           <Link className="logo" to="/novedades">
-            MiRuta
+            Mi Ruta
           </Link>
           <img
             src={img}
